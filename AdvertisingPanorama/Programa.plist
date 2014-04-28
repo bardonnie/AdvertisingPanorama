@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>8ea8afe9-06bd-4cd3-9148-fc4594d3f8c0</string>
+		<key>name</key>
+		<string>首页</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>abbcb4d3-c95c-4781-a0e8-479941de54eb</string>
+		<key>name</key>
+		<string>社论</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>f9f18483-8429-406e-bcf0-1364f94966cd</string>
+		<key>name</key>
+		<string>专题</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>5f2bff59-64b8-456a-8fc9-0e0ed41253c6</string>
+		<key>name</key>
+		<string>焦点</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>8648162f-fb3e-4fe1-901c-3ba454043d72</string>
+		<key>name</key>
+		<string>趋势</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>66f85ce4-44c5-41ed-a83f-cefeb86e0208</string>
+		<key>name</key>
+		<string>人物</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>df568443-9048-4f88-8d96-c361a2c7ce1e</string>
+		<key>name</key>
+		<string>案例</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>ca46a845-a9fc-4753-ae49-123eb7d9b17d</string>
+		<key>name</key>
+		<string>媒体</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>bdf1dcd8-0097-419a-85a5-4942431ead63</string>
+		<key>name</key>
+		<string>虎啸堂</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>57f17f7d-6617-4c8b-9c03-44bc476f48c0</string>
+		<key>name</key>
+		<string>观察家</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/dzpqzb/Library/Developer/Shared/Documentation/DocSets/cn.wiz.wizcore.docset
+Time: 2013-02-06 04:33:12 +0000

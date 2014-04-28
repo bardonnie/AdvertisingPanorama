@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WizIntroduceIphone</key>
+	<dict>
+		<key>WizIntroduceNew</key>
+		<array>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_new_user_intro_4</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Text, images, audio,and many other new ways will provide to you</string>
+				<key>WizIntroduceTitle</key>
+				<string>Record note so easy</string>
+			</dict>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_new_user_intro_2</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Whether it be text, Web pages, images, attachments,  all can be viewed easily</string>
+				<key>WizIntroduceTitle</key>
+				<string>View note so smooth</string>
+			</dict>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_new_user_intro_0</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Create group,record work note with colleagues Make teamwork easier</string>
+				<key>WizIntroduceTitle</key>
+				<string>Share Team Wisdom</string>
+			</dict>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_new_user_intro_1</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Make you manage your notes more effective</string>
+				<key>WizIntroduceTitle</key>
+				<string>Multilevel folder and tag</string>
+			</dict>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_new_user_intro_3</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Any memories, a moments to search</string>
+				<key>WizIntroduceTitle</key>
+				<string>Search Memory Quickly</string>
+			</dict>
+		</array>
+		<key>WizIntroduceUpdate</key>
+		<array>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string>iphone_update_intro_3</string>
+				<key>WizIntroduceDescripter</key>
+				<string>Do you want to create beautiful notes? Use markdown render!</string>
+				<key>WizIntroduceTitle</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>WizIntroduceIpad</key>
+	<dict>
+		<key>WizIntroduceUpdate</key>
+		<array>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string></string>
+				<key>WizIntroduceDescripter</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>WizIntroduceNew</key>
+		<array>
+			<dict>
+				<key>WizIntroduceImagePath</key>
+				<string></string>
+				<key>WizIntroduceDescripter</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
