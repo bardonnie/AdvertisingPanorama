@@ -6,6 +6,8 @@
 //  Copyright (c) 2014年 trends-china. All rights reserved.
 //
 
+
+
 #import "AD_RootViewController.h"
 
 @interface AD_RootViewController ()< WizSyncDownloadDelegate>
@@ -36,7 +38,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hiddenAdvertisementImageView) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hiddenAdvertisementImageView) userInfo:nil repeats:NO];
     
     _advertisementBackImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
     _advertisementBackImageView.backgroundColor = [UIColor redColor];
@@ -63,18 +65,7 @@
     advertisementImageView.backgroundColor = [UIColor clearColor];
     advertisementImageView.contentMode = UIViewContentModeScaleToFill;
     [_advertisementBackImageView addSubview:advertisementImageView];
-    
-    NSString *tmpPathIndex = [[[WizFileManager shareManager] wizTempObjectDirectory:ADVERTISEMENT_GUID] stringByAppendingPathComponent:@"index_files"];
-    
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tmpPathIndex error:nil];
-    for (NSString *fileName in files) {
-        NSRange jpgRange = [fileName rangeOfString:@".jpg"];
-        NSRange pngRange = [fileName rangeOfString:@".png"];
-        if (jpgRange.length > 0 || pngRange.length > 0) {
-            NSString *imagePath = [tmpPathIndex stringByAppendingPathComponent:fileName];
-            [advertisementImageView setImage:[UIImage imageWithContentsOfFile:imagePath]];
-        }
-    }
+    [advertisementImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:IMAGE_URL,ADVERTISEMENT_GUID,KBGUID,[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]]]];
 }
 
 - (void)hiddenAdvertisementImageView

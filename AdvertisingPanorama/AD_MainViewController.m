@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 trends-china. All rights reserved.
 //
 
+
 #import "AD_MainViewController.h"
 
 @interface AD_MainViewController ()< UITableViewDelegate, UITableViewDataSource>
@@ -68,7 +69,7 @@
 
 - (void)wizDownloadFinish:(NSNotification *)notification
 {
-//    NSLog(@"wiz - %@",[notification object]);
+    //    NSLog(@"wiz - %@",[notification object]);
     _mainArray = [notification object];
     [_mainTableView reloadData];
 }
@@ -123,29 +124,18 @@
         int i = 0;
         for (WizDocument *wizDoc in [_mainArray objectAtIndex:indexPath.section])
         {
-            NSString *tmp = NSTemporaryDirectory();
-            NSString *tmpPath = [tmp stringByAppendingPathComponent:wizDoc.guid];
-            NSString *tmpPathIndex = [tmpPath stringByAppendingPathComponent:@"index_files"];
-            NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tmpPathIndex error:nil];
-            for (NSString *fileName in files) {
-                NSRange jpgRange = [fileName rangeOfString:@".jpg"];
-                NSRange pngRange = [fileName rangeOfString:@".png"];
-                if (jpgRange.length > 0 || pngRange.length > 0) {
-                    NSString *imagePath = [tmpPathIndex stringByAppendingPathComponent:fileName];
-                    
-                    UIButton *bannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-                    bannerBtn.frame = CGRectMake(i*300, 0, 300, 124);
-                    bannerBtn.contentMode = UIViewContentModeScaleAspectFill;
-                    bannerBtn.tag = 1000+i;
-                    [bannerBtn addTarget:self action:@selector(bannerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-                    [homeScrollView addSubview:bannerBtn];
-                    
-                    UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 124)];
-                    [bannerImageView setImage:[UIImage imageWithContentsOfFile:imagePath]];
-                    bannerImageView.contentMode = UIViewContentModeScaleAspectFill;
-                    [bannerBtn addSubview:bannerImageView];
-                }
-            }
+            UIButton *bannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            bannerBtn.frame = CGRectMake(i*300, 0, 300, 124);
+            bannerBtn.contentMode = UIViewContentModeScaleAspectFill;
+            bannerBtn.tag = 1000+i;
+            [bannerBtn addTarget:self action:@selector(bannerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            [homeScrollView addSubview:bannerBtn];
+            
+            UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 300, 124)];
+            [bannerImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:IMAGE_URL,wizDoc.guid,KBGUID,[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]]]
+                            placeholderImage:[UIImage imageNamed:@"banner"]];
+            bannerImageView.contentMode = UIViewContentModeScaleAspectFill;
+            [bannerBtn addSubview:bannerImageView];
             i++;
         }
         
@@ -182,18 +172,8 @@
                 }
             }
             
-            NSString *tmp = NSTemporaryDirectory();
-            NSString *tmpPath = [tmp stringByAppendingPathComponent:wizDoc.guid];
-            NSString *tmpPathIndex = [tmpPath stringByAppendingPathComponent:@"index_files"];
-            NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tmpPathIndex error:nil];
-            for (NSString *fileName in files) {
-                NSRange jpgRange = [fileName rangeOfString:@".jpg"];
-                NSRange pngRange = [fileName rangeOfString:@".png"];
-                if (jpgRange.length > 0 || pngRange.length > 0) {
-                    NSString *imagePath = [tmpPathIndex stringByAppendingPathComponent:fileName];
-                    cell.homeCellDetailImage.image = [UIImage imageWithContentsOfFile:imagePath];
-                }
-            }
+            [cell.homeCellDetailImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:IMAGE_URL,wizDoc.guid,KBGUID,[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]]]
+                                     placeholderImage:[UIImage imageNamed:@"image"]];
             
             NSArray *wizTitleArray = [wizDoc.title componentsSeparatedByString:@"@"];
             cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -201,7 +181,7 @@
             if (wizTitleArray.count > 1) {
                 cell.homeCellDetail.text = [wizTitleArray objectAtIndex:1];
             }
-
+            
         }
         return cell;
     }
@@ -264,7 +244,7 @@
 
 - (void)bannerBtnClick:(UIButton *)sender
 {
-//    NSLog(@"tag - %d",sender.tag);
+    //    NSLog(@"tag - %d",sender.tag);
     NSString *titleStr = [[NSString alloc] init];
     NSArray *wizTitleArray = [[[[_mainArray objectAtIndex:0] objectAtIndex:sender.tag-1000] title] componentsSeparatedByString:@"@"];
     titleStr = [wizTitleArray objectAtIndex:0];

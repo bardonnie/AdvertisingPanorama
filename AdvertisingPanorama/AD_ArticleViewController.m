@@ -66,6 +66,12 @@
     [self cancelBtnClick];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -132,6 +138,7 @@
     if (![[WizFileManager shareManager] fileExistsAtPath:filePathString])
     {
         [[WizSyncCenter shareCenter] downloadDocument:_guid kbguid:KBGUID accountUserId:USER_ID];
+        [SVProgressHUD showWithStatus:@"正在加载..."];
     }
     else
     {
@@ -300,7 +307,6 @@
 #pragma mark - networkDelegate
 - (void)downloadFinish:(NSData *)data
 {
-    [SVProgressHUD dismiss];
     NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     NSLog(@"data - %@",[[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding]);
     
@@ -457,7 +463,7 @@
 - (void)didDownloadEnd:(NSString *)guid
 {
     NSLog(@"guid -- %@",guid);
-    
+    [SVProgressHUD showSuccessWithStatus:@"加载成功"];
     if ([guid isEqualToString:_guid]) {
         NSString *file=  [[NSString alloc]init ];
         if ([[WizFileManager shareManager] prepareReadingEnviroment:guid accountUserId:USER_ID])

@@ -28,6 +28,8 @@ typedef enum
 #define ADVERTISEMENTPART_GUID  @"113a2ef6-662c-4e8d-adff-a9891fc4e2c0"
 #define ADVERTISEMENT_GUID      @"4b96c6ae-37cb-40b8-85a0-c24555f326e4"
 
+#define IMAGE_URL    @"http://115.28.129.182/wizsearch/abstract?document_guids=%@&kb_guid=%@&client_type=web2.0&api_version=4&token=%@&type=1"
+
 #pragma mark - localHost
 
 #define LOCALHOST       @"http://apiguanggaodaguan.trends-china.com/Service.ashx?%@"
@@ -99,6 +101,7 @@ typedef enum
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 #import "SBJson4.h"
+#import "UIImageView+WebCache.h"
 
 #import "AD_RootViewController.h"
 #import "AD_AppDelegate.h"

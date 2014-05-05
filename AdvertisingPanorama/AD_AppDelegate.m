@@ -6,12 +6,15 @@
 //  Copyright (c) 2014年 trends-china. All rights reserved.
 //
 
+
+#define TOKEN_URL   @"http://apiguanggaodaguan.trends-china.com/dowork.aspx?_action=GetWizLoginInfoByUserIDAndPassword&userid=%@&password=%@"
+
 #import "AD_AppDelegate.h"
 #import "AD_NetWork.h"
 #include <sys/xattr.h>
 
 
-@interface AD_AppDelegate ()< WeiboSDKDelegate, WXApiDelegate, WeiboRequestDelegate,WeiboAuthDelegate>
+@interface AD_AppDelegate ()< WeiboSDKDelegate, WXApiDelegate, WeiboRequestDelegate,WeiboAuthDelegate, AD_NetWorkDelegate>
 
 @end
 
@@ -27,6 +30,21 @@
 @synthesize wizDocArray = _wizDocArray;
 @synthesize wbapi;
 
+
+- (void)downloadFinish:(NSData *)data
+{
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+    if ([[dic objectForKey:@"message"] isEqual:@"success"])
+    {
+        [[NSUserDefaults standardUserDefaults] setValue:[dic objectForKey:@"token"] forKey:@"token"];
+    }
+    NSLog(@"dic - %@",dic);
+}
+
+- (void)downloadFaild
+{
+    
+}
 
 #pragma mark - Setting the Extended Attribute on iOS 5.0.1
 
@@ -50,6 +68,9 @@
     
     [WXApi registerApp:@"wx97d363d597416075"];
     
+    [[AD_NetWork shareNetWork] startDownloadWithURL:[NSString stringWithFormat:TOKEN_URL,USER_ID,USER_PASSWORD]];
+    [AD_NetWork shareNetWork].delegate = self;
+        
     // 腾讯微博分享
     if(self->wbapi == nil)
     {

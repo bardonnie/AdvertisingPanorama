@@ -72,7 +72,7 @@
     {
         [allGuid appendFormat:@"%@,",wizDoc.guid];
     }
-
+    
     AD_NetWork *network = [[AD_NetWork alloc] init];
     network.delegate = self;
     [network startDownloadWithURL:[NSString stringWithFormat:LOCALHOST_NEW,[NSString stringWithFormat:GET_COMM_NUM,[self removeLastOneChar:allGuid]]]];
@@ -114,19 +114,9 @@
     }
     WizDocument *wizDoc = [_partDataArray objectAtIndex:indexPath.row];
     
-    NSString *tmp = NSTemporaryDirectory();
-    NSString *tmpPath = [tmp stringByAppendingPathComponent:wizDoc.guid];
-    NSString *tmpPathIndex = [tmpPath stringByAppendingPathComponent:@"index_files"];
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tmpPathIndex error:nil];
-    for (NSString *fileName in files) {
-        NSRange jpgRange = [fileName rangeOfString:@".jpg"];
-        NSRange pngRange = [fileName rangeOfString:@".png"];
-        if (jpgRange.length > 0 || pngRange.length > 0) {
-            NSString *imagePath = [tmpPathIndex stringByAppendingPathComponent:fileName];
-            cell.thumbnailImageView.image = [UIImage imageWithContentsOfFile:imagePath];
-            cell.thumbnailImageView.clipsToBounds = YES;
-        }
-    }
+    [cell.thumbnailImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:IMAGE_URL,wizDoc.guid,KBGUID,[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]]]
+                            placeholderImage:[UIImage imageNamed:@"banner"]];
+    cell.thumbnailImageView.clipsToBounds = YES;
     
     NSArray *wizTitleArray = [wizDoc.title componentsSeparatedByString:@"@"];
     cell.articleTitleLabel.text = [wizTitleArray objectAtIndex:0];
