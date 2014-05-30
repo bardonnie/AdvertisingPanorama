@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>67AF36FE-12ED-454E-9460-83712E4EB753</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AdvertisingPanorama</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6F8CB89C-C0BA-401A-9FE3-2AAA21C92E5B</key>
+		<string>https://github.com/cheen/AdvertisingPanorama.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AdvertisingPanorama.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6F8CB89C-C0BA-401A-9FE3-2AAA21C92E5B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cheen/AdvertisingPanorama.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6F8CB89C-C0BA-401A-9FE3-2AAA21C92E5B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6F8CB89C-C0BA-401A-9FE3-2AAA21C92E5B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AdvertisingPanorama</string>
+		</dict>
+	</array>
+</dict>
+</plist>

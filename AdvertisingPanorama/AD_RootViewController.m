@@ -65,7 +65,20 @@
     advertisementImageView.backgroundColor = [UIColor clearColor];
     advertisementImageView.contentMode = UIViewContentModeScaleToFill;
     [_advertisementBackImageView addSubview:advertisementImageView];
-    [advertisementImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:IMAGE_URL,ADVERTISEMENT_GUID,KBGUID,[[NSUserDefaults standardUserDefaults] valueForKey:@"token"]]]];
+    
+    NSString *tmp = NSTemporaryDirectory();
+    NSString *tmpPath = [tmp stringByAppendingPathComponent:ADVERTISEMENT_GUID];
+    NSString *tmpPathIndex = [tmpPath stringByAppendingPathComponent:@"index_files"];
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:tmpPathIndex error:nil];
+    for (NSString *fileName in files) {
+        NSRange jpgRange = [fileName rangeOfString:@".jpg"];
+        NSRange pngRange = [fileName rangeOfString:@".png"];
+        if (jpgRange.length > 0 || pngRange.length > 0) {
+            NSString *imagePath = [tmpPathIndex stringByAppendingPathComponent:fileName];
+            [advertisementImageView setImage:[UIImage imageWithContentsOfFile:imagePath]];
+        }
+    }
+
 }
 
 - (void)hiddenAdvertisementImageView

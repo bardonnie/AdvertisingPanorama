@@ -13,7 +13,6 @@ function ResizeImages(maxwidth) {
             myImg.height = myImg.height * (maxwidth/oldwidth);
         }
     }
- 
 }
  function Touch()
 {

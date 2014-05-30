@@ -118,6 +118,7 @@ typedef enum
 #import "AD_SettingViewController.h"
 #import "AD_FeedbackViewController.h"
 #import "AD_RePwdViewController.h"
+#import "AD_AppViewController.h"
 
 #import "AD_NetWork.h"
 

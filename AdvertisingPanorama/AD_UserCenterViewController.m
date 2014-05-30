@@ -62,15 +62,15 @@
     userCenterTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:userCenterTableView];
     
-    _userCenterArray = [[NSArray alloc] initWithObjects:@"我的收藏", @"关于我们", @"在线投稿", @"扫我下载", @"设置",nil];
+    _userCenterArray = [[NSArray alloc] initWithObjects:@"我的收藏", @"关于我们", @"在线投稿", @"扫我下载", @"常用设置",@"应用推荐",nil];
     _delegate = [UIApplication sharedApplication].delegate;
     
-    _userCenterImageArray = [[NSArray alloc] initWithObjects:@"collect_white", @"about", @"投稿", @"二维码", @"set-up", nil];
+    _userCenterImageArray = [[NSArray alloc] initWithObjects:@"collect_white", @"about", @"投稿", @"二维码", @"set-up", @"推荐", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _userCenterArray.count;
+    return _userCenterArray.count-1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -175,6 +175,12 @@
             AD_SettingViewController *settingViewController = [[AD_SettingViewController alloc] init];
             [_delegate.rootNav pushViewController:settingViewController animated:YES];
         }
+            break;
+//        case 5:
+//        {
+//            AD_AppViewController *appViewController = [[AD_AppViewController alloc] init];
+//            [_delegate.rootNav pushViewController:appViewController animated:YES];
+//        }
             break;
         default:
             break;

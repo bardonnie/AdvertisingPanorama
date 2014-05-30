@@ -15,6 +15,7 @@
 		041B7ED218B5A2EC0012458C /* AD_FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041B7ED018B5A2EC0012458C /* AD_FeedbackViewController.xib */; };
 		041B7ED518B5BA970012458C /* AD_CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041B7ED418B5BA970012458C /* AD_CollectViewController.m */; };
 		041ED7D618D9AA9D00E0D7B7 /* libTCWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 041ED7D418D9AA9D00E0D7B7 /* libTCWeiboSDK.a */; };
+		042559301920AD1100C5DF2D /* AD_AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0425592F1920AD1100C5DF2D /* AD_AppViewController.m */; };
 		042A67C918C962F6005E638B /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 042A67C618C962F6005E638B /* SVProgressHUD.bundle */; };
 		042A67CA18C962F6005E638B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A67C818C962F6005E638B /* SVProgressHUD.m */; };
 		042D474A1915D9160087DCE5 /* WizInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 042D47491915D9160087DCE5 /* WizInfo.plist */; };
@@ -194,6 +195,8 @@
 		041B7ED418B5BA970012458C /* AD_CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AD_CollectViewController.m; sourceTree = "<group>"; };
 		041ED7D418D9AA9D00E0D7B7 /* libTCWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTCWeiboSDK.a; sourceTree = "<group>"; };
 		041ED7D518D9AA9D00E0D7B7 /* WeiboApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboApi.h; sourceTree = "<group>"; };
+		0425592E1920AD1100C5DF2D /* AD_AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AD_AppViewController.h; sourceTree = "<group>"; };
+		0425592F1920AD1100C5DF2D /* AD_AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AD_AppViewController.m; sourceTree = "<group>"; };
 		042A67C618C962F6005E638B /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		042A67C718C962F6005E638B /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		042A67C818C962F6005E638B /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -610,6 +613,8 @@
 				042378F318D846DC0091E9A0 /* AD_RePwdViewController.xib */,
 				0408259418F7D75300522C68 /* AD_QRCodeViewController.h */,
 				0408259518F7D75300522C68 /* AD_QRCodeViewController.m */,
+				0425592E1920AD1100C5DF2D /* AD_AppViewController.h */,
+				0425592F1920AD1100C5DF2D /* AD_AppViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1240,7 +1245,7 @@
 				ORGANIZATIONNAME = "trends-china";
 				TargetAttributes = {
 					04FE951E18B33960008506F8 = {
-						DevelopmentTeam = ZURS394S93;
+						DevelopmentTeam = KH34T39U37;
 					};
 					04FE953918B33960008506F8 = {
 						TestTargetID = 04FE951E18B33960008506F8;
@@ -1377,6 +1382,7 @@
 				04D4D63E18FBC2F90064FBF1 /* WizGlocalError.m in Sources */,
 				04D4D63F18FBC2F90064FBF1 /* WizSyncAccountThread.m in Sources */,
 				04A4819C18B49D4200FA5B6F /* MMDrawerVisualState.m in Sources */,
+				042559301920AD1100C5DF2D /* AD_AppViewController.m in Sources */,
 				04D4D63518FBC2F90064FBF1 /* XMLRPCConnection.m in Sources */,
 				04E39F5E18B352AD008DCEEB /* AD_ProgramaViewController.m in Sources */,
 				04D4D63C18FBC2F90064FBF1 /* WizAccountManager.m in Sources */,
@@ -1503,8 +1509,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "A24CBEB1-9692-49EB-B657-6B7239CC4EB6";
+				PROVISIONING_PROFILE = "44C2C6E8-5699-4A5C-A8E5-709EE03C86B7";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -1541,9 +1548,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "A24CBEB1-9692-49EB-B657-6B7239CC4EB6";
+				PROVISIONING_PROFILE = "44C2C6E8-5699-4A5C-A8E5-709EE03C86B7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -1577,9 +1585,9 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "44C2C6E8-5699-4A5C-A8E5-709EE03C86B7";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1614,9 +1622,9 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "44C2C6E8-5699-4A5C-A8E5-709EE03C86B7";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

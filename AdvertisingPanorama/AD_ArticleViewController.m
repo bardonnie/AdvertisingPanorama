@@ -17,6 +17,7 @@
     UIWebView *_articleWebView;
     NSString *_guid;
     NSString *_title;
+    NSString *_shareUrl;
     UIControl *_reviewView;
     UIControl *_reviewBackControl;
     UITextView *_reviewTextView;
@@ -36,15 +37,16 @@
     [[WizNotificationCenter shareCenter]removeObserver:self];
 }
 
-- (id)initWithGuid:(NSString *)guid WithTitle:(NSString *)title
+- (id)initWithGuid:(NSString *)guid WithTitle:(NSString *)title AndShareUrl:(NSString *)shareUrl
 {
     self = [super init];
     if (self)
     {
         NSLog(@"guid - %@",guid);
-        NSLog(@"title - %@",title);
+        NSLog(@"title - %@",shareUrl);
         _guid = [NSString stringWithString:guid];
         _title = [NSString stringWithString:title];
+        _shareUrl = [NSString stringWithString:shareUrl];
         
         [[WizNotificationCenter shareCenter] addDownloadDelegate:self];
     }
@@ -407,19 +409,12 @@
         message.description = _title;
         [message setThumbImage:[UIImage imageNamed:@"shareImage"]];
         
-        WXAppExtendObject *ext = [WXAppExtendObject object];
-        ext.extInfo = _title;
-        ext.url = @"https://itunes.apple.com/app/remote/id837986227?mt=8";
+        WXWebpageObject *webPage = [WXWebpageObject object];
+        webPage.webpageUrl = _shareUrl;
         
-        Byte* pBuffer = (Byte *)malloc(BUFFER_SIZE);
-        memset(pBuffer, 0, BUFFER_SIZE);
-        NSData* data = [NSData dataWithBytes:pBuffer length:BUFFER_SIZE];
-        free(pBuffer);
-        ext.fileData = data;
-        message.mediaObject = ext;
+        message.mediaObject = webPage;
         
         SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-        req.bText = NO;
         req.message = message;
         
         if (sender.tag == 1000) {

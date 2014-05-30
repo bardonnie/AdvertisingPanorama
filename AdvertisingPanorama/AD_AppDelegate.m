@@ -66,7 +66,7 @@
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:@"3333429973"];
     
-    [WXApi registerApp:@"wx97d363d597416075"];
+    [WXApi registerApp:@"wx5b46214afc6bd2a9"];
     
     [[AD_NetWork shareNetWork] startDownloadWithURL:[NSString stringWithFormat:TOKEN_URL,USER_ID,USER_PASSWORD]];
     [AD_NetWork shareNetWork].delegate = self;

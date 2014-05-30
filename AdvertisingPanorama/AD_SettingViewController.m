@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 trends-china. All rights reserved.
 //
 
+
+#define GUANG_GAO_DA_GUAN_URL   @"http://itunes.apple.com/app/guang-gao-da-guan/id837986227?mt=8"
+
 #import "AD_SettingViewController.h"
 
 @interface AD_SettingViewController ()
@@ -39,7 +42,7 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-    self.title = @"设置";
+    self.title = @"常用设置";
     
     UIBarButtonItem *backBarBtnItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backBarBtnItemClick:)];
     self.navigationItem.leftBarButtonItem = backBarBtnItem;
@@ -143,7 +146,7 @@
     }
     if (sender.tag == 102)
     {
-//        http://itunes.apple.com/cn/app/guang-gao-da-guan/id837986227?mt=8
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GUANG_GAO_DA_GUAN_URL]];
     }
 }
 

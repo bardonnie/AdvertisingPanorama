@@ -156,16 +156,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *titleStr = [[NSString alloc] init];
+    NSString *shareUrl;
     for (WizDocument *doc in _wizDocArray) {
         if ([[[_articleArray objectAtIndex:indexPath.row] objectForKey:@"ArticleID"] isEqual:doc.guid])
         {
             NSArray *wizTitleArray = [doc.title componentsSeparatedByString:@"@"];
             titleStr = [wizTitleArray objectAtIndex:0];
+            if (wizTitleArray.count >= 3) {
+                shareUrl = [wizTitleArray objectAtIndex:2];
+            }
         }
     }
+
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[_articleArray objectAtIndex:indexPath.row] objectForKey:@"ArticleID"] WithTitle:titleStr];
+    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[_articleArray objectAtIndex:indexPath.row] objectForKey:@"ArticleID"] WithTitle:titleStr AndShareUrl:shareUrl];
     [self.navigationController pushViewController:articleViewController animated:YES];
 }
 

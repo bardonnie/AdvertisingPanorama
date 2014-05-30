@@ -11,6 +11,6 @@
 @interface AD_ArticleViewController : UIViewController
 
 
-- (id)initWithGuid:(NSString *)guid WithTitle:(NSString *)title;
+- (id)initWithGuid:(NSString *)guid WithTitle:(NSString *)title AndShareUrl:(NSString *)shareUrl;
 
 @end

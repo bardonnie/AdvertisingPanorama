@@ -58,7 +58,8 @@
     [aboutScrollView addSubview:aboutLabel];
     
     UIImageView *qrImageView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 510, 220, 220)];
-    [qrImageView setImage:[UIImage imageNamed:@"qr"]];
+    qrImageView.backgroundColor = [UIColor redColor];
+    [qrImageView setImage:[UIImage imageNamed:@"weixinerweima"]];
     [aboutScrollView addSubview:qrImageView];
     
     UILabel *promptLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 730, 300, 60)];

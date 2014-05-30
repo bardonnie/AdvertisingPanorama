@@ -181,7 +181,7 @@
             if (wizTitleArray.count > 1) {
                 cell.homeCellDetail.text = [wizTitleArray objectAtIndex:1];
             }
-            
+            NSLog(@"----%@",[wizTitleArray objectAtIndex:2]);
         }
         return cell;
     }
@@ -221,21 +221,28 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *titleStr = [[NSString alloc] init];
+    NSString *titleStr;
+    NSString *shareUrl;
     if ([[_mainArray objectAtIndex:indexPath.section] count] > 0) {
         if (indexPath.row == 0) {
             NSArray *wizTitleArray = [[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:0] title] componentsSeparatedByString:@"@"];
             titleStr = [wizTitleArray objectAtIndex:0];
+            if (wizTitleArray.count >=3) {
+                shareUrl = [wizTitleArray objectAtIndex:2];
+            }
             
-            AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] guid] WithTitle:titleStr];
+            AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] guid] WithTitle:titleStr AndShareUrl:shareUrl];
             [self.navigationController pushViewController:articleViewController animated:YES];
         }
         if ([[_mainArray objectAtIndex:indexPath.section] count] > 1) {
             if (indexPath.row == 1) {
                 NSArray *wizTitleArray = [[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:0] title] componentsSeparatedByString:@"@"];
                 titleStr = [wizTitleArray objectAtIndex:0];
+                if (wizTitleArray.count >=3) {
+                    shareUrl = [wizTitleArray objectAtIndex:2];
+                }
                 
-                AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] guid] WithTitle:titleStr];
+                AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] guid] WithTitle:titleStr AndShareUrl:shareUrl];
                 [self.navigationController pushViewController:articleViewController animated:YES];
             }
         }
@@ -245,11 +252,16 @@
 - (void)bannerBtnClick:(UIButton *)sender
 {
     //    NSLog(@"tag - %d",sender.tag);
-    NSString *titleStr = [[NSString alloc] init];
+    NSString *titleStr;
+    NSString *shareUrl;
     NSArray *wizTitleArray = [[[[_mainArray objectAtIndex:0] objectAtIndex:sender.tag-1000] title] componentsSeparatedByString:@"@"];
     titleStr = [wizTitleArray objectAtIndex:0];
     
-    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:0] objectAtIndex:sender.tag-1000] guid] WithTitle:titleStr];
+    if (wizTitleArray.count >=3) {
+        shareUrl = [wizTitleArray objectAtIndex:2];
+    }
+    
+    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[[_mainArray objectAtIndex:0] objectAtIndex:sender.tag-1000] guid] WithTitle:titleStr AndShareUrl:shareUrl];
     [self.navigationController pushViewController:articleViewController animated:YES];
 }
 

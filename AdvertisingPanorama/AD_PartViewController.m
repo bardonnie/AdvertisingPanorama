@@ -87,11 +87,11 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString *titleStr = [[NSString alloc] init];
     NSArray *wizTitleArray = [[[_partDataArray objectAtIndex:indexPath.row] title] componentsSeparatedByString:@"@"];
-    titleStr = [wizTitleArray objectAtIndex:0];
+    NSString *titleStr = [wizTitleArray objectAtIndex:0];
+    NSString *shareUrl = [wizTitleArray objectAtIndex:2];
     
-    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[_partDataArray objectAtIndex:indexPath.row] guid] WithTitle:titleStr];
+    AD_ArticleViewController *articleViewController = [[AD_ArticleViewController alloc] initWithGuid:[[_partDataArray objectAtIndex:indexPath.row] guid] WithTitle:titleStr AndShareUrl:shareUrl];
     [self.navigationController pushViewController:articleViewController animated:YES];
 }
 
